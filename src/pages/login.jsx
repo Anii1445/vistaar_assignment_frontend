@@ -179,7 +179,7 @@ function Login() {
               fullWidth
               onClick={login}
             >
-              Login
+              {loading ? "Logging..." : "Login"}
             </LoadingButton>
           </div>
           <small>Don't have an account?</small>
