@@ -199,14 +199,14 @@ function Login() {
             <Divider sx={{ my: 2 }}>or</Divider>
             
               <LoadingButton
-              loading={loading}
+              loading={googleLoading}
               loadingPosition="start"
               variant="outlined"
               fullWidth
               onClick={handleLogin}
-              startIcon={!loading && <FcGoogle />}
+              startIcon={!googleLoading && <FcGoogle />}
             >
-              {loading ? "Loading...":"Continue with Google"}
+              {googleLoading ? "Loading...":"Continue with Google"}
             </LoadingButton>
           </div>
         </CardContent>
