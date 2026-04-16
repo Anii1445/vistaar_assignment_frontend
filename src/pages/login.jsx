@@ -174,7 +174,6 @@ function Login() {
           <div>
             <LoadingButton
               loading={loading}
-              loadingPosition="start"
               loadingIndicator="Logging…"
               variant="contained"
               fullWidth
