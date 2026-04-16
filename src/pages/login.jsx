@@ -60,7 +60,7 @@ function Login() {
           }),
         );
         navigate("/dashboard");
-        toast.success("Logged-In Successfully!");
+        toast.success("Login Successful!");
       } else {
         navigate("/");
         toast.error(result.msg);
@@ -86,7 +86,7 @@ function Login() {
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify(response.data));
         setLoading(false);
-        toast.success("Login Succesfully");
+        toast.success("Login Succesful!");
         navigate("/dashboard");
       }
     } catch (error) {
