@@ -25,6 +25,7 @@ function Login() {
   const [errors, setErrors] = useState({});
   const [showPasssword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -49,6 +50,7 @@ function Login() {
   };
 
   const handleLogin = async () => {
+    setGoogleLoading(true);
     try {
       const result = await signInWithPopup(auth, provider);
       console.log(result.user);
@@ -65,10 +67,12 @@ function Login() {
         toast.success("Login Successfully!");
       } else {
         navigate("/");
-        toast.error(result.msg);
+        toast.error("Something went wrong!");
       }
     } catch (err) {
       console.error(err);
+    }finally{
+      setGoogleLoading(false);
     }
   };
 
@@ -77,24 +81,22 @@ function Login() {
   };
 
   const login = async () => {
-    setLoading(true);
     if (!validate()) {
-      setLoading(false);
       return;
     }
+    setLoading(false);
+
     try {
       const response = await axios.post(`${API}/auth/login`, userData);
 
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify(response.data));
-        setLoading(false);
         toast.success("Login Succesfully");
         navigate("/dashboard");
       }
     } catch (error) {
       const message = error.response?.data?.msg || "Something went wrong";
       toast.error(message);
-      setLoading(false);
     } finally {
       setLoading(false);
     }
