@@ -16,6 +16,7 @@ import {
   TablePagination,
 } from "@mui/material";
 const API = import.meta.env.VITE_API_URL;
+import { ImSpinner2 } from "react-icons/im";
 
 
 function Transaction() {
@@ -25,6 +26,7 @@ function Transaction() {
   const [allTransaction, setAllTransaction] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  
   useEffect(() => {
     const getAccountTransaction = async () => {
       setLoading(true);
@@ -107,7 +109,7 @@ function Transaction() {
             {loading ? (
               <TableRow>
                 <TableCell colSpan={4} align="center">
-                  <Typography sx={{ py: 3 }}>Loading...</Typography>
+                  <Typography sx={{ py: 3 }}><small><ImSpinner2/>Loading...</small></Typography>
                 </TableCell>
               </TableRow>
             ) : allTransaction.length > 0 ? (
@@ -132,7 +134,7 @@ function Transaction() {
             ) : (
               <TableRow>
                 <TableCell colSpan={4} align="center">
-                  <Typography sx={{ py: 3 }}>Not Data Available</Typography>
+                  <Typography sx={{ py: 3 }}><small>Not Data Available</small></Typography>
                 </TableCell>
               </TableRow>
             )}

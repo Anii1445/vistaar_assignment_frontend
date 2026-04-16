@@ -13,6 +13,7 @@ import {
   TablePagination
 } from "@mui/material";
 const API = import.meta.env.VITE_API_URL;
+import { ImSpinner2 } from "react-icons/im";
 
 function Account() {
   const [page, setPage] = useState(0);
@@ -79,7 +80,7 @@ function Account() {
             {loading ? (
               <TableRow>
                 <TableCell colSpan={4} align="center">
-                  <Typography sx={{ py: 3 }}><small>Loading...</small></Typography>
+                  <Typography sx={{ py: 3 }}><small><ImSpinner2/> Loading...</small></Typography>
                 </TableCell>
               </TableRow>
             ) : accountTransaction.length > 0 ? (
@@ -97,7 +98,7 @@ function Account() {
             ) : (
               <TableRow>
                 <TableCell colSpan={4} align="center">
-                  <Typography sx={{ py: 3 }}>No data Available</Typography>
+                  <Typography sx={{ py: 3 }}><small>No data Available</small></Typography>
                 </TableCell>
               </TableRow>
             )}

@@ -16,7 +16,7 @@ import { FaEye } from "react-icons/fa";
 import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 const API = import.meta.env.VITE_API_URL;
-
+import { ImSpinner2 } from "react-icons/im";
 
 function Dashboard() {
   const [customerData, setCustomerData] = useState([]);
@@ -87,7 +87,7 @@ function Dashboard() {
           {loading ? (
             <TableRow>
               <TableCell colSpan={4} align="center">
-                <Typography sx={{ py: 3 }}>Loading...</Typography>
+                <Typography sx={{ py: 3 }}><small><ImSpinner2/>Loading...</small></Typography>
               </TableCell>
             </TableRow>
           ) : customerData.length > 0 ? (

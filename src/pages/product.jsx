@@ -17,6 +17,7 @@ import {
   TablePagination
 } from "@mui/material";
 const API = import.meta.env.VITE_API_URL;
+import { ImSpinner2 } from "react-icons/im";
 
 function Product(){
 
@@ -75,7 +76,7 @@ const handleChangeRowsPerPage = (event) => {
         <TableBody>
           {loading ? <TableRow>
       <TableCell colSpan={4} align="center">
-        <Typography sx={{ py: 3 }}>Loading...</Typography>
+        <Typography sx={{ py: 3 }}><small><ImSpinner2/>Loading...</small></Typography>
       </TableCell>
     </TableRow> : allProduct.length > 0 ? allProduct.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((p, i) => (
             <TableRow key={i} hover>
@@ -85,7 +86,7 @@ const handleChangeRowsPerPage = (event) => {
           )
         ): <TableRow>
       <TableCell colSpan={4} align="center">
-        <Typography sx={{ py: 3 }}>No Data Available</Typography>
+        <Typography sx={{ py: 3 }}><small>No Data Available</small></Typography>
       </TableCell>
     </TableRow>}
         </TableBody>
