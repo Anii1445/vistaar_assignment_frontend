@@ -87,7 +87,9 @@ function Dashboard() {
           {loading ? (
             <TableRow>
               <TableCell colSpan={4} align="center">
-                <Typography sx={{ py: 3 }}><small><ImSpinner2/>Loading...</small></Typography>
+                <Typography sx={{ py: 3, display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", color: "grey" }}>
+                    <ImSpinner2/><small>Loading...</small>
+                </Typography>
               </TableCell>
             </TableRow>
           ) : customerData.length > 0 ? (
