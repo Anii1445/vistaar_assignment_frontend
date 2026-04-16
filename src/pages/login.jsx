@@ -19,7 +19,7 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import FormHelperText from "@mui/material/FormHelperText";
 const API = import.meta.env.VITE_API_URL;
-
+import LoadingButton from "@mui/lab/LoadingButton";
 
 function Login() {
   const [errors, setErrors] = useState({});
@@ -54,13 +54,15 @@ function Login() {
       console.log(result.user);
 
       if (result.user) {
-        localStorage.setItem("user",JSON.stringify({
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
             name: result.user?.displayName,
             email: result.user?.email,
           }),
         );
         navigate("/dashboard");
-        toast.success("Login Successful!");
+        toast.success("Login Successfully!");
       } else {
         navigate("/");
         toast.error(result.msg);
@@ -86,15 +88,15 @@ function Login() {
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify(response.data));
         setLoading(false);
-        toast.success("Login Succesful!");
+        toast.success("Login Succesfully!");
         navigate("/dashboard");
       }
     } catch (error) {
       const message = error.response?.data?.msg || "Something went wrong";
       toast.error(message);
       setLoading(false);
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -170,9 +172,15 @@ function Login() {
           </div>
 
           <div>
-            <Button loadingPosition="start" loading={loading} loadingIndicator="Logging..." variant="contained" fullWidth onClick={login}>
+            <LoadingButton
+              loading={loading}
+              loadingPosition="start"
+              variant="contained"
+              fullWidth
+              onClick={login}
+            >
               Login
-            </Button>
+            </LoadingButton>
           </div>
           <small>Don't have an account?</small>
           <NavLink
