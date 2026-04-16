@@ -195,14 +195,17 @@ function Login() {
           </NavLink>
           <div>
             <Divider sx={{ my: 2 }}>or</Divider>
-            <Button
+            
+              <LoadingButton
+              loading={loading}
+              loadingPosition="start"
               variant="outlined"
               fullWidth
               onClick={handleLogin}
-              startIcon={<FcGoogle />}
+              startIcon={!loading && <FcGoogle />}
             >
-              Continue with Google
-            </Button>
+              {loading ? "Loading...":"Continue with Google"}
+            </LoadingButton>
           </div>
         </CardContent>
       </Card>
