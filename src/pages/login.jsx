@@ -170,7 +170,7 @@ function Login() {
           </div>
 
           <div>
-            <Button loading={loading} loadingIndicator="Logging..." variant="contained" fullWidth onClick={login}>
+            <Button loadingPosition="start" loading={loading} loadingIndicator="Logging..." variant="contained" fullWidth onClick={login}>
               Login
             </Button>
           </div>
