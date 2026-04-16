@@ -84,7 +84,7 @@ function Login() {
     if (!validate()) {
       return;
     }
-    setLoading(false);
+    setLoading(true);
 
     try {
       const response = await axios.post(`${API}/auth/login`, userData);
