@@ -18,6 +18,8 @@ import InputLabel from "@mui/material/InputLabel";
 import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import FormHelperText from "@mui/material/FormHelperText";
+const API = import.meta.env.VITE_API_URL;
+
 
 function Login() {
   const [errors, setErrors] = useState({});
@@ -79,7 +81,7 @@ function Login() {
       return;
     }
     try {
-      const response = await axios.post(`http://localhost:5000/auth/login`, userData);
+      const response = await axios.post(`${API}/auth/login`, userData);
 
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify(response.data));

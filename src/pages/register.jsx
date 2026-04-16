@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useState } from "react";
+const API = import.meta.env.VITE_API_URL;
 
 function Register() {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ function Register() {
     }
 
     try {
-      const response = await axios.post(`http://localhost:5000/auth/register`,
+      const response = await axios.post(`${API}/auth/register`,
         formData,
       );
 

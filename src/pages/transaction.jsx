@@ -15,6 +15,8 @@ import {
   Button,
   TablePagination,
 } from "@mui/material";
+const API = import.meta.env.VITE_API_URL;
+
 
 function Transaction() {
   const { id } = useParams();
@@ -28,7 +30,7 @@ function Transaction() {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:5000/auth/getAccountTransaction/${id}`,
+          `${API}/auth/getAccountTransaction/${id}`,
         );
 
         if (res.status === 200) {

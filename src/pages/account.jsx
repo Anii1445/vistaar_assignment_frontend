@@ -12,6 +12,7 @@ import {
   Typography,
   TablePagination
 } from "@mui/material";
+const API = import.meta.env.VITE_API_URL;
 
 function Account() {
   const [page, setPage] = useState(0);
@@ -24,7 +25,7 @@ function Account() {
       setLoading(true);
       try {
         const res = await axios.get(
-          `http://localhost:5000/auth/getTransactionBelow5000`);
+          `${API}/auth/getTransactionBelow5000`);
         console.log(res.data);
 
         if (res.status === 200) {

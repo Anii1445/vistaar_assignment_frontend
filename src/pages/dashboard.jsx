@@ -15,6 +15,8 @@ import {
 import { FaEye } from "react-icons/fa";
 import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
+const API = import.meta.env.VITE_API_URL;
+
 
 function Dashboard() {
   const [customerData, setCustomerData] = useState([]);
@@ -34,7 +36,7 @@ function Dashboard() {
     const fetchCustomers = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`http://localhost:5000/auth/getCustomer`);
+        const res = await axios.get(`${API}/auth/getCustomer`);
 
         if (res.status === 200) {
           setCustomerData(res.data);

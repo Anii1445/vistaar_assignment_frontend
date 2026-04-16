@@ -16,6 +16,7 @@ import {
   Button,
   TablePagination
 } from "@mui/material";
+const API = import.meta.env.VITE_API_URL;
 
 function Product(){
 
@@ -27,7 +28,7 @@ const [rowsPerPage, setRowsPerPage] = useState(5);
         const getAllProduct = async() => {
         try {
             setLoading(true)
-            const res = await axios.get(`http://localhost:5000/auth/getAllDistinctProduct`)
+            const res = await axios.get(`${API}/auth/getAllDistinctProduct`)
 
             if(res.status === 200){
                 setAllProduct(res.data)
