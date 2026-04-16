@@ -175,6 +175,7 @@ function Login() {
             <LoadingButton
               loading={loading}
               loadingPosition="start"
+              loadingIndicator="Logging…"
               variant="contained"
               fullWidth
               onClick={login}
