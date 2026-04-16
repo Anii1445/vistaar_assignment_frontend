@@ -53,7 +53,7 @@ function Login() {
       const result = await signInWithPopup(auth, provider);
       console.log(result.user);
 
-      if (result.status === 200) {
+      if (result.user) {
         localStorage.setItem("user",JSON.stringify({
             name: result.user?.displayName,
             email: result.user?.email,
