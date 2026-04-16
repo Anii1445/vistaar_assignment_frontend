@@ -88,7 +88,7 @@ function Login() {
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify(response.data));
         setLoading(false);
-        toast.success("Login Succesfully!");
+        toast.success("Login Succesfully");
         navigate("/dashboard");
       }
     } catch (error) {
