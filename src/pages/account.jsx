@@ -80,7 +80,7 @@ function Account() {
             {loading ? (
               <TableRow>
                 <TableCell colSpan={4} align="center">
-                  <Typography sx={{ py: 3 }}><small><ImSpinner2/> Loading...</small></Typography>
+                  <Typography sx={{ py: 3, display: "flex", alignItems: "center" }}><small><ImSpinner2/> Loading...</small></Typography>
                 </TableCell>
               </TableRow>
             ) : accountTransaction.length > 0 ? (
