@@ -20,17 +20,19 @@ function Account() {
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [accountTransaction, setAccountTransaction] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const getAccountTransaction = async () => {
       setLoading(true);
       try {
         const res = await axios.get(
-          `${API}/auth/getTransactionBelow5000`);
+          `${API}/auth/getTransactionBelow5000?page=${page + 1}&limit=${rowsPerPage}`);
         console.log(res.data);
 
         if (res.status === 200) {
-          setAccountTransaction(res.data);
+          setAccountTransaction(res.data.response);
+          setTotal(res.data.total);
         }
       } catch (error) {
         console.log(error);
@@ -40,7 +42,7 @@ function Account() {
     };
 
     getAccountTransaction();
-  }, []);
+  }, [page, rowsPerPage]);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -85,10 +87,8 @@ function Account() {
                   </Typography>
                 </TableCell>
               </TableRow>
-            ) : accountTransaction.length > 0 ? (
-              accountTransaction
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((t, i) => (
+            ) : accountTransaction?.length > 0 ? (
+              accountTransaction?.map((t, i) => (
                   <TableRow key={i} hover>
                     <TableCell>{page * rowsPerPage + i + 1}</TableCell>
                     <TableCell>{t.account_id}</TableCell>
@@ -109,7 +109,7 @@ function Account() {
 
         <TablePagination
           component="div"
-          count={accountTransaction.length}
+          count={total}
           page={page}
           onPageChange={handleChangePage}
           rowsPerPage={rowsPerPage}
