@@ -9,9 +9,11 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useState } from "react";
 const API = import.meta.env.VITE_API_URL;
+import LoadingButton from "@mui/lab/LoadingButton";
 
 function Register() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
@@ -59,6 +61,7 @@ function Register() {
       return;
     }
 
+    setLoading(true);
     try {
       const response = await axios.post(`${API}/auth/register`,
         formData,
@@ -72,6 +75,8 @@ function Register() {
       }
     } catch (err) {
       console.error(err);
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -150,9 +155,15 @@ function Register() {
           </div>
 
           <div>
-            <Button variant="contained" fullWidth onClick={handleRegister}>
-              Create Account
-            </Button>
+            <LoadingButton
+              loading={loading}
+              loadingPosition="start"
+              variant="contained"
+              fullWidth
+              onClick={handleRegister}
+            >
+              {loading ? "Creating..." : "Create Account"}
+            </LoadingButton>
           </div>
           <small>Already have an account?</small>
           <NavLink

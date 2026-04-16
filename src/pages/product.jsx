@@ -22,7 +22,7 @@ function Product(){
 
     const [page, setPage] = useState(0);
     const [loading, setLoading] = useState(false);
-const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [rowsPerPage, setRowsPerPage] = useState(5);
     const [allProduct, setAllProduct] = useState([]);
     useEffect(()=>{
         const getAllProduct = async() => {
@@ -32,7 +32,6 @@ const [rowsPerPage, setRowsPerPage] = useState(5);
 
             if(res.status === 200){
                 setAllProduct(res.data)
-                setLoading(false);
             }
         } catch (error) {
             console.log(error)

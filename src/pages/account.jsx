@@ -30,7 +30,6 @@ function Account() {
 
         if (res.status === 200) {
           setAccountTransaction(res.data);
-          setLoading(false);
         }
       } catch (error) {
         console.log(error);

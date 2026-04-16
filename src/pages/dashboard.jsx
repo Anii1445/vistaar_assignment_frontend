@@ -40,7 +40,6 @@ function Dashboard() {
 
         if (res.status === 200) {
           setCustomerData(res.data);
-          setLoading(false);
         }
       } catch (err) {
         console.log(err);

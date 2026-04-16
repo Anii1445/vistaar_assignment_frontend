@@ -35,7 +35,6 @@ function Transaction() {
 
         if (res.status === 200) {
           setAllTransaction(res.data[0].transactions);
-          setLoading(false);
         }
       } catch (error) {
         console.log(error);
