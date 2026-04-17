@@ -17,7 +17,7 @@ import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 const API = import.meta.env.VITE_API_URL;
 import { ImSpinner2 } from "react-icons/im";
-import { MdArrowDropDown } from "react-icons/md";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 
 function Dashboard() {
@@ -111,7 +111,7 @@ function Dashboard() {
                     size="small"
                     variant="outlined"
                   >
-                    View <MdArrowDropDown/>
+                    View <IoMdArrowDropdown/>
                   </Button>
                   <Menu
                     id="basic-menu"
