@@ -173,7 +173,7 @@ function NavbarLayout() {
             >
               <Tooltip title={user?.email || data?.userInfo?.email}>
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar sx={{ bgcolor: "lightblue", color: "#1769aa", width: {xs: 28, md: 40}, height: {xs: 28, md: 40}}}>
+                  <Avatar sx={{ bgcolor: "lightblue", color: "#1769aa", width: {xs: 32, md: 40}, height: {xs: 32, md: 40}}}>
                     {user?.displayName?.charAt(0) ||
                       data?.userInfo?.name?.charAt(0)}
                   </Avatar>
