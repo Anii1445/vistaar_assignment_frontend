@@ -118,11 +118,11 @@ function Login() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: {md: "100vh", xs: "50vh"},
         background: "linear-gradient(135deg, #9ACAE9, #044F7A)",
       }}
     >
-      <Card sx={{ width: "100%", maxWidth: { xs: 305, md: 395 }, p: 4, borderRadius: "20px" }}>
+      <Card sx={{ width: "100%", maxWidth: { xs: 310, md: 395 }, p: 4, borderRadius: "20px" }}>
         <CardContent>
           <Typography variant="h5" textalign="center" sx={{ mb: 4 }}>
             Login
