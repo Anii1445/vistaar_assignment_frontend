@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { FaUser } from "react-icons/fa";
@@ -21,6 +20,12 @@ import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { AiFillProduct } from "react-icons/ai";
 import { MdSwitchAccount } from "react-icons/md";
+import { FiMenu } from "react-icons/fi";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+
 
 const pages = [
   { name: "Dashboard", icon: <VscGraph /> },
@@ -29,6 +34,7 @@ const pages = [
 ];
 
 function NavbarLayout() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -92,6 +98,7 @@ function NavbarLayout() {
     }
 
     handleCloseNavMenu();
+    setDrawerOpen(false)
   };
 
   const settings = [
@@ -102,24 +109,29 @@ function NavbarLayout() {
   ];
 
   return (
+    <>
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+
+          <IconButton
+              sx={{ display: { xs: "flex", md: "none" }, color: "white", marginRight: "12px" }}
+              onClick={() => setDrawerOpen(true)}
+          >
+              <FiMenu />
+          </IconButton>
+
           <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 3,
-              display: { xs: "flex", md: "flex" },
               fontWeight: 700,
+              fontSize: { xs: "12px", sm: "16px", md: "25px" },
               letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
-              border: "2px solid white",
               padding: "0px 8px 0px 8px",
-              backgroundColor: "white",
+              background: "white",
+              borderRadius: "5px",
             }}
           >
             <p style={{ color: "#1769aa" }}>
@@ -127,28 +139,29 @@ function NavbarLayout() {
             </p>
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, i) => (
-              <Button
+              <Box
                 key={i}
                 onClick={() => handlePage(page.name)}
-                size="small"
                 sx={{
                   my: 2,
                   color: "white",
-                  display: "block",
-                  border: "1px solid white",
                   marginRight: "12px",
+                  "&:hover": {
+                      backgroundColor: "rgba(255,255,255,0.1)",
+                    },
                 }}
               >
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   {page.icon}
                   <p>{page.name}</p>
                 </Box>
-              </Button>
+              </Box>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
+
+          <Box sx={{ flexGrow: 1 }}>
             <Tooltip title={user?.email || data?.userInfo?.email}>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar sx={{ bgcolor: "lightblue", color: "#1769aa" }}>
@@ -191,6 +204,26 @@ function NavbarLayout() {
         </Toolbar>
       </Container>
     </AppBar>
+
+    <Drawer
+        anchor="left"
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      >
+        <Box sx={{ width: 250 }}>
+          <List>
+            {pages.map((page, i) => (
+              <ListItem button key={i} onClick={() => handlePage(page.name)}>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2, cursor: "pointer" }}>
+                  {page.icon}
+                  <ListItemText primary={page.name} />
+                </Box>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Drawer>
+    </>
   );
 }
 export default NavbarLayout;
