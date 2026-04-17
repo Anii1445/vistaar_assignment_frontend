@@ -90,7 +90,7 @@ function Register() {
         background: "linear-gradient(135deg, #9ACAE9, #044F7A)",
       }}
     >
-      <Card sx={{ maxWidth: 550, width: "100%", p: 4, borderRadius: "20px" }}>
+      <Card sx={{ maxWidth: 550, width: {md: "100%", xs: "75%"}, p: 4, borderRadius: "20px" }}>
         <CardContent>
           <Typography variant="h5" textalign="center" sx={{ mb: 4 }}>
             Sign Up
