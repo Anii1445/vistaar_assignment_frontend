@@ -102,7 +102,7 @@ function NavbarLayout() {
 
   const settings = [
     { text: "Profile", icon: <FaUser style={{ marginRight: 8 }} /> },
-    { text: "Account", icon: <MdAccountBox style={{ marginRight: 8 }} /> },
+    { text: "Account", icon: <MdSwitchAccount style={{ marginRight: 8 }} /> },
     { text: "Dashboard", icon: <VscGraph style={{ marginRight: 8 }} /> },
     { text: "Logout", icon: <IoMdLogOut style={{ marginRight: 8 }} /> },
   ];
