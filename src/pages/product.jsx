@@ -56,7 +56,7 @@ const handleChangeRowsPerPage = (event) => {
 
     return(
     <>
-     <TableContainer component={Paper} sx={{ mt: 4, maxWidth: 900, mx: "auto", border: "1px solid #D3D3D3" }}>
+     <TableContainer component={Paper} sx={{ mt: 4, maxWidth: { xs: "90%", md: 900 }, overflowX: "auto", mx: "auto", border: "1px solid #D3D3D3" }}>
       <Typography variant="h5" sx={{ p: 2, fontWeight: "bold" }}>
         All Distinct Products
       </Typography>

@@ -148,14 +148,15 @@ function NavbarLayout() {
                   onClick={() => handlePage(page.name)}
                   sx={{
                     my: 2,
+                    cursor: "pointer",
                     color: "white",
-                    marginRight: "12px",
+                    marginRight: "20px",
                     "&:hover": {
                       backgroundColor: "rgba(255,255,255,0.1)",
                     },
                   }}
                 >
-                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
                     {page.icon}
                     <p>{page.name}</p>
                   </Box>
