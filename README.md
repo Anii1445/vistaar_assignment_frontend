@@ -40,6 +40,8 @@ This is a full-stack web application that allows users to authenticate using a t
 ### ✅ 4. MongoDB Queries
 #### 🔹 Query 1: Accounts with at least one transaction below 5000
 #### 🔹 Query 2: Distinct list of products
+#### 🔹 Query 3: List active Customer details in a table using REACT, with the following columns (Name, Address, Accounts)
+#### 🔹 Query 4: Accounts to be clickable and on click of an account list down the transactions linked to it
 
 🌐 Live Demo
 
