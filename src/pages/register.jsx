@@ -10,6 +10,7 @@ import axios from "axios";
 import { useState } from "react";
 const API = import.meta.env.VITE_API_URL;
 import LoadingButton from "@mui/lab/LoadingButton";
+import { Box } from "@mui/material";
 
 function Register() {
   const navigate = useNavigate();
@@ -81,8 +82,8 @@ function Register() {
   };
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -90,13 +91,13 @@ function Register() {
         background: "linear-gradient(135deg, #9ACAE9, #044F7A)",
       }}
     >
-      <Card sx={{ maxWidth: 550, width: {md: "100%", xs: "75%"}, p: 4, borderRadius: "20px" }}>
+      <Card sx={{  width: "100%", maxWidth: { xs: 375, md: 560 }, p: 4, borderRadius: "20px" }}>
         <CardContent>
           <Typography variant="h5" textalign="center" sx={{ mb: 4 }}>
             Sign Up
           </Typography>
 
-          <div style={{ display: "flex", gap: "10px", marginBottom: "1px" }}>
+          <Box sx={{ display: {md: "flex", xs:"block"}, gap: "10px", marginBottom: "1px" }}>
             <TextField
               id="outlined-basic"
               fullWidth
@@ -123,9 +124,9 @@ function Register() {
               error={!!errors.phone}
               helperText={errors.phone}
             />
-          </div>
+          </Box>
 
-          <div style={{ display: "flex", gap: "10px", marginBottom: "2px" }}>
+          <Box sx={{ display: {md: "flex", xs:"block"}, gap: "10px", marginBottom: "2px" }}>
             <TextField
               id="outlined-basic"
               fullWidth
@@ -152,9 +153,9 @@ function Register() {
               error={!!errors.password}
               helperText={errors.password}
             />
-          </div>
+          </Box>
 
-          <div>
+          <Box>
             <LoadingButton
               loading={loading}
               loadingPosition="start"
@@ -164,7 +165,7 @@ function Register() {
             >
               {loading ? "Creating..." : "Create Account"}
             </LoadingButton>
-          </div>
+          </Box>
           <small>Already have an account?</small>
           <NavLink
             to="/"
@@ -176,10 +177,9 @@ function Register() {
           >
             Login
           </NavLink>
-          <div></div>
         </CardContent>
       </Card>
-    </div>
+    </Box>
   );
 }
 

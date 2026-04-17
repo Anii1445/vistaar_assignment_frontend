@@ -2,7 +2,7 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import Button from "@mui/material/Button";
+import { Box } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import TextField from "@mui/material/TextField";
@@ -113,7 +113,7 @@ function Login() {
   };
 
   return (
-    <div
+    <Box
       style={{
         display: "flex",
         justifyContent: "center",
@@ -122,13 +122,13 @@ function Login() {
         background: "linear-gradient(135deg, #9ACAE9, #044F7A)",
       }}
     >
-      <Card sx={{ maxWidth: 395, width: {md: "100%", xs: "75%"}, p: 4, borderRadius: "20px" }}>
+      <Card sx={{ width: "100%", maxWidth: { xs: 375, md: 395 }, p: 4, borderRadius: "20px" }}>
         <CardContent>
           <Typography variant="h5" textalign="center" sx={{ mb: 4 }}>
             Login
           </Typography>
 
-          <div>
+          <Box>
             <TextField
               id="outlined-basic"
               fullWidth
@@ -171,9 +171,9 @@ function Login() {
 
               <FormHelperText>{errors.password}</FormHelperText>
             </FormControl>
-          </div>
+          </Box>
 
-          <div>
+          <Box>
             <LoadingButton
               loading={loading}
               loadingPosition="start"
@@ -183,7 +183,7 @@ function Login() {
             >
               {loading ? "Logging..." : "Login"}
             </LoadingButton>
-          </div>
+          </Box>
           <small>Don't have an account?</small>
           <NavLink
             to="/register"
@@ -195,7 +195,7 @@ function Login() {
           >
             Create an account
           </NavLink>
-          <div>
+          <Box>
             <Divider sx={{ my: 2 }}>or</Divider>
             
               <LoadingButton
@@ -208,10 +208,10 @@ function Login() {
             >
               {googleLoading ? "Loading...":"Continue with Google"}
             </LoadingButton>
-          </div>
+          </Box>
         </CardContent>
       </Card>
-    </div>
+    </Box>
   );
 }
 
