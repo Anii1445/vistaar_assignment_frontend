@@ -118,7 +118,7 @@ function Login() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: {md: "100vh", xs: "50vh"},
+        height: {md: "100vh", xs: "70vh"},
         background: "linear-gradient(135deg, #9ACAE9, #044F7A)",
       }}
     >
