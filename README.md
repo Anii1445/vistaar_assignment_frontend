@@ -1,16 +1,50 @@
-# React + Vite
+# 🚀 Customer Accounts & Transactions App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Overview
+This is a full-stack web application that allows users to authenticate using a third-party login and view customer account details along with their transactions. The project demonstrates frontend development with React and backend querying using MongoDB.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔐 Authentication
+- Implemented third-party login using (OAuth / Firebase)
+- Secure user authentication before accessing the dashboard
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+- Frontend: React.js, HTML, CSS, Material UI
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Deployment: Vercel (Frontend), Render (Backend)
+- Tools: GitHub, MongoDB Atlas
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+### ✅ 1. Login System
+- Third-party authentication (OAuth / Firebase)
+- Protected routes after login
+
+### ✅ 2. Customer Table
+- Displays active customers in a table
+- Columns:
+  - Name
+  - Address
+  - Accounts
+
+### ✅ 3. Account Transactions
+- Accounts are clickable
+- On click → Displays transactions related to that account
+
+### ✅ 4. MongoDB Queries
+#### 🔹 Query 1: Accounts with at least one transaction below 5000
+#### 🔹 Query 2: Distinct list of products
+
+🌐 Live Demo
+
+👉 https://vistaar-assignment-frontend.vercel.app
+
+🎥 Demo Video
+
+👉 https://www.loom.com/share/1471c11c83234f3094aabc403f304bd2
