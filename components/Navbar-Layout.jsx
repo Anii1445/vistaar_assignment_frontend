@@ -129,7 +129,7 @@ function NavbarLayout() {
               letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
-              padding: "0px 8px 0px 8px",
+              padding: "5px 8px 5px 8px",
               background: "white",
               borderRadius: "5px",
             }}
