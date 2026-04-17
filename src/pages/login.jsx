@@ -2,7 +2,7 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../firebase";
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Box } from "@mui/material";
+import { Box, Chip } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import TextField from "@mui/material/TextField";
@@ -196,7 +196,9 @@ function Login() {
             Create an account
           </NavLink>
           <Box>
-            <Divider sx={{ my: 2 }}>or</Divider>
+            <Divider sx={{ my: 2 }}>
+              <Chip label="or" size="small" />
+            </Divider>
             
               <LoadingButton
               loading={googleLoading}
