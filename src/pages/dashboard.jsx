@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 const API = import.meta.env.VITE_API_URL;
 import { ImSpinner2 } from "react-icons/im";
 import { IoMdArrowDropdown } from "react-icons/io";
-
+import "../css/spinner.css";
 
 function Dashboard() {
   const [customerData, setCustomerData] = useState([]);
@@ -90,7 +90,7 @@ function Dashboard() {
             <TableRow>
               <TableCell colSpan={4} align="center">
                 <Typography sx={{ py: 3, display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", color: "grey" }}>
-                    <ImSpinner2/><small>Loading...</small>
+                    <ImSpinner2 className="spin"/><small>Loading...</small>
                 </Typography>
               </TableCell>
             </TableRow>
